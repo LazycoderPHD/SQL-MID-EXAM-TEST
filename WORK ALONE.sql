@@ -67,4 +67,18 @@ INSERT INTO SANPHAM (MaSP, TenSP, MaDM, GiaBan, TonKho, TrangThai) VALUES
 ('SP000007', N'Tai nghe AirPods', 'DM003', 4000000, 50, 'Dang ban'),
 ('SP000008', N'Chuột Logitech', 'DM003', 1000000, 30, 'Dang ban');
 
-select * from danhmuc
+INSERT INTO DONHANG (MaDH, MaKH, MaSP, SoLuong, DonGia, NgayDat, TrangThai) VALUES
+('DH00000001', 'KH000001', 'SP000001', 1, 25000000, '2023-12-01', 'Da giao'),
+('DH00000002', 'KH000002', 'SP000004', 1, 30000000, '2023-12-15', 'Da huy'),
+('DH00000003', 'KH000003', 'SP000002', 2, 20000000, '2024-01-10', 'Da giao'),
+('DH00000004', 'KH000004', 'SP000005', 1, 30000000, '2024-02-05', 'Dang giao'),
+('DH00000005', 'KH000005', 'SP000007', 3, 4000000, '2023-11-20', 'Da huy'),
+('DH00000006', 'KH000001', 'SP000008', 2, 1000000, '2024-03-01', 'Cho xac nhan'),
+('DH00000007', 'KH000002', 'SP000001', 1, 25000000, '2024-03-05', 'Dang giao'),
+('DH00000008', 'KH000003', 'SP000007', 1, 4000000, '2023-12-25', 'Da giao'),
+('DH00000009', 'KH000004', 'SP000008', 5, 1000000, '2024-03-08', 'Da giao'),
+('DH00000010', 'KH000005', 'SP000002', 1, 20000000, '2024-03-10', 'Cho xac nhan')
+
+update sanpham
+set giaban = giaban * 1.05 --câu a
+WHERE MaDM IN (SELECT MaDM FROM DANHMUC WHERE TenDM = 'Laptop');
